@@ -42,7 +42,7 @@ def create_review(data: ReviewCreate, db: Session = Depends(get_db)):
     return ReviewOut.model_validate(review)
 
 
-@router.put("/{player_key}/{author}", response_model=ReviewOut)
+@router.post("/{player_key}/{author}/edit", response_model=ReviewOut)
 def edit_review(
     player_key: str, author: str,
     data: ReviewEdit, db: Session = Depends(get_db)

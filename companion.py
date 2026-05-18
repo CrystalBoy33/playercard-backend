@@ -168,8 +168,8 @@ def sync_review(player_key: str, review: dict) -> bool:
         return False
 
     if edited:
-        endpoint = f"/reviews/{player_key}/{author}"
-        return api_post(endpoint, {"rating": rating, "role": role, "text": text})
+    	endpoint = f"/reviews/{player_key}/{author}/edit"
+    	return api_post(endpoint, {"rating": rating, "role": role, "text": text})
     else:
         return api_post("/reviews/", {
             "player_key": player_key,
